@@ -12,7 +12,7 @@ public class Application {
 
     public static final String APPLICATION_LOCATIONS = "spring.config.location="
             + "classpath:application.yml,"
-            + "C:\\sts-4.5.1.RELEASE\\00dbtestyml\\application.yml";
+            + "~/app/config/boardtoyproject/db.yml";
 	
 	public static void main(String[] args) {
 		//SpringApplication.run(Application.class, args);
