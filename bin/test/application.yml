@@ -9,3 +9,5 @@ spring:
   profiles: local
   jpa:
     show-sql: true
+    
+#spring.profiles.include: real-db

@@ -34,6 +34,9 @@
             {{/each}}
             </tbody>
         </table>
+        
+        <button type="button" class="btn btn-info" id='registration'>회원가입</button>
+        
     </div>
 
     <!-- Modal 영역 -->
@@ -74,37 +77,35 @@
 <script src="/js/lib/popper.js"></script>
 <script src="/js/lib/bootstrap.min.js"></script>
 <script type="text/javascript">
-var main = {
-    init : function () {
-        var _this = this;
-        $('#btn-save').on('click', function () {
-            _this.save();
-        });
-    },
-    save : function () {
-        var data = {
+
+$("#registration").click(function(){
+	location.href = "/addUserView";
+});
+
+$("#btn-save").click(function(){
+	var articleData = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
         };
+        
+        articleData = JSON.stringify(articleData);
 
-        $.ajax({
+		 $.ajax({
             type: 'POST',
             url: '/posts',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            data: articleData
         }).done(function() {
             alert('글이 등록되었습니다.');
             location.reload();
         }).fail(function (error) {
+        	alert('실패함');
             alert(error);
         });
-    }
 
-};
-
-main.init();
+});
 </script>
 <!--
 <script src="/js/app/main.js"/>

@@ -1,0 +1,12 @@
+create table user
+(id bigint not null auto_increment
+, user_id varchar(20) not null
+, password varchar(20) not null
+, email varchar(50) not null
+, name varchar(20) not null
+, nickname varchar(50) not null
+, phone_number int(11) not null
+, created_date datetime
+, role char(3)
+, primary key (id))
+engine=InnoDB

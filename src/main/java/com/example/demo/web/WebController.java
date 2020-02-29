@@ -3,6 +3,7 @@ package com.example.demo.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.AllArgsConstructor;
 
@@ -15,5 +16,9 @@ public class WebController {
     	System.out.println("메인호출");
     	model.addAttribute("posts", postsService.findAllDesc());
         return "main";
+    }
+    @RequestMapping("/1")
+    public String tester () {
+    	return "2";
     }
 }
