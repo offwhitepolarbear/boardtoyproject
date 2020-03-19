@@ -1,6 +1,6 @@
 package com.example.demo.user;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,7 @@ public class UserSaveRequestDto {
 				.name(name)
 				.nickname(nickname)
 				.phoneNumber(phoneNumber)
-				.createdDate(LocalDate.now())
+				.createdDate(LocalDateTime.now())
 				.role("u")
 				.build();
 	}

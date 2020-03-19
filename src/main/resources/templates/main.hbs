@@ -91,19 +91,27 @@ $("#btn-save").click(function(){
         
         articleData = JSON.stringify(articleData);
 
-		 $.ajax({
-            type: 'POST',
-            url: '/posts',
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: articleData
-        }).done(function() {
-            alert('글이 등록되었습니다.');
-            location.reload();
-        }).fail(function (error) {
-        	alert('실패함');
-            alert(error);
-        });
+         $.ajax({
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			type : "POST",
+			url : "/posts",
+			data : articleData,
+			dataType : "text",
+			beforeSend : function() {
+			},
+			error : function(request, status, error) {
+				alert("통신에 실패하였습니다 다시시도해주세요");
+			},
+			success : function(data) {
+				alert("글작성완료");
+				 location.reload();
+			},
+			complete : function() {
+			}
+		});
 
 });
 </script>

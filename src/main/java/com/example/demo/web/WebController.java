@@ -21,4 +21,8 @@ public class WebController {
     public String tester () {
     	return "2";
     }
+    @RequestMapping("/loginView")
+    public String login() {
+    	return"login";
+    }
 }

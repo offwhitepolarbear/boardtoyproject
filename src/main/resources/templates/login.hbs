@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	아이디
+	<input type="text" class="form-control" name='userId' id='userId'
+		maxlength='50' placeholder=' ID'> 비밀번호
+	<input type="password" class="form-control" name='password'
+		id='password' maxlength="16" placeholder="영문/숫자/특수문자를 모두 포함한 8~16자리">
+	<div id='underPassword'></div>
+	<button id='login'>로그인 버튼임</button>
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/lib/popper.js"></script>
+	<script src="/js/lib/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$("#login").click(function() {
+			var userData = {
+				userId : $('#userId').val(),
+				password : $('#password').val(),
+			};
+
+			userData = JSON.stringify(userData);
+			$.ajax({
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				type : "POST",
+				url : "/login",
+				data : userData,
+				dataType : "text",
+				beforeSend : function() {
+				},
+				error : function(request, status, error) {
+					alert("통신에 실패하였습니다 다시시도해주세요");
+				},
+				success : function(data) {
+					alert(data);
+
+				},
+				complete : function() {
+				}
+			});
+		});
+	</script>
+</body>
+</html>

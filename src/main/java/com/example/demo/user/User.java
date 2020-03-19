@@ -1,6 +1,6 @@
 package com.example.demo.user;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,13 +41,13 @@ public class User {
 	private int phoneNumber;
 	
 	@Column
-	private LocalDate createdDate;
+	private LocalDateTime createdDate;
 	
 	@Column(length = 3)
 	private String role;
 	
 	@Builder
-	public User(String userId, String password, String email, String name, String nickname, int phoneNumber, LocalDate createdDate, String role) {
+	public User(String userId, String password, String email, String name, String nickname, int phoneNumber, LocalDateTime createdDate, String role) {
 		this.userId = userId;
 		this.password = password;
 		this.email = email;
